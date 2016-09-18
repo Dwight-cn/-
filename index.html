@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线制作表情包1.0</title>
+
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css">
+    <script src="assets/plugins/require.js" data-main="assets/js/main"></script>
+</head>
+<body>
+<div id="msk">
+    <div class="tips">
+        <p>
+            右键复制图片去装X吧！
+        </p>
+    </div>
+    <div class="box-btn close-btn" id="close-btn-msk">╳</div>
+    <canvas id="picture">
+
+    </canvas>
+</div>
+<div class="left">
+    <div class="left-title">
+        <span>文字</span>
+    </div>
+    <div class="left-content" id="a">
+        <span>内容：</span><textarea rows="5"  id="font-content"></textarea><br/>
+        <span>大小：</span><input type="number" id="font-size" min="0" max="999"/><span>&nbsp;像素</span><br/>
+        <span>字体：</span>
+            <select name="fontfamily" id="font-family">
+                <option value="microsoft yahei">微软雅黑</option>
+                <option value="songti">宋体</option>
+                <option value="黑体">黑体</option>
+             </select><br/>
+        <span>颜色：</span><input type="color" id="font-color"/><br/>
+
+        <div class="btn" id="addfont-btn">添加文字</div>
+    </div>
+</div>
+<div class="center">
+    <div class="btn" id="drawing-btn">生成图片</div>
+    <div class="panel">
+
+    </div>
+</div>
+<div class="right">
+    <div class="right-title">
+        <span>图片素材</span>
+    </div>
+    <div id="img-list">
+            <div class="img-container"><img src="assets/img/抱鲤鱼.jpg" alt=""/></div>
+            <div class="img-container"><img src="assets/img/再说一遍.png" alt=""/></div>
+            <div class="img-container"><img src="assets/img/像花儿一样.jpg" alt=""/></div>
+            <div class="img-container"><img src="assets/img/吊吊的.jpg" alt=""/></div>
+            <div class="img-container"><img src="assets/img/啊右.jpg" alt=""/></div>
+            <div class="img-container"><img src="assets/img/啊左.jpg" alt=""/></div>
+            <div class="img-container"><img src="assets/img/嘿嘿嘿.jpg" alt=""/></div>
+            <div class="img-container"><img src="assets/img/姚式微笑.jpg" alt=""/></div>
+            <div class="img-container"><img src="assets/img/斜眼笑.jpg" alt=""/></div>
+            <div class="img-container"><img src="assets/img/棒棒的.jpeg" alt=""/></div>
+    </div>
+</div>
+
+
+</body>
+</html>
+

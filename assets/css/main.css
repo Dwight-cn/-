@@ -1,0 +1,301 @@
+*{margin: 0; padding: 0}
+
+html{
+    height: 100%;
+}
+body{
+    position: relative;
+    height: 100%;
+    font-size: 0;
+    font-family: 'microsoft yahei';
+}
+
+input,textarea,select{
+    border-width: 2px;
+    border-radius: 3px;
+    border-color: #ffde45;
+    border-style: dashed;
+    font-size: 16px;
+}
+input{
+    height: 30px;
+}
+textarea{
+    vertical-align: text-top;
+}
+
+.btn{
+    border-radius: 5px;
+    background-color: #ffde45;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#msk{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position : fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    display: none;
+}
+#msk.show{
+    display: block;
+}
+#msk .tips{
+    width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 36px;
+}
+#msk .tips p{
+    text-align: center;
+    margin: 0 auto;
+}
+#msk #close-btn-msk{
+    width: 40px;
+    height: 40px;
+    background-color: #ff563c;
+    right: 10px;
+    top: 10px;
+    font-size: 36px;
+    line-height: 40px;
+    cursor: pointer;
+}
+#picture{
+    background-color: #ffffff;
+    position : fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.left{
+    width: 15%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #ededed;
+}
+.left-title,.right-title{
+    width: 100%;
+    height: 50px;
+    background-color: #ffde45;
+    color: #000000;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+}
+.left-content{
+    margin: 10px;
+    color: #000000;
+    font-size: 16px;
+    line-height: 50px;
+}
+#font-size{
+    width: 100px;
+}
+#addfont-btn{
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+
+}
+#addfont-btn:hover{
+    background-color: #ffbb00;
+}
+.center{
+    background-color: #f7f7f7;
+    width: 60%;
+    height: 100%;
+    padding-top: 70px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+#drawing-btn{
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 99;
+
+}
+.center .panel{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border:2px dashed #ffde45;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+
+}
+.panel .ui-resizable-se{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    line-height: 25px;
+    right: 0;
+    bottom: 0;
+    background: #4798d9 url("../img/scale.png") no-repeat center;
+}
+
+.right{
+    width: 25%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    background-color: #ededed;
+}
+.right-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+#img-list:after{
+    /*去浮动*/
+    content:"";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}
+#img-list{
+    height: 100%;
+    padding-top: 60px;
+    zoom: 1;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.img-container{
+    float: left;
+    width: 47%;
+    height: 200px;
+    margin-left: 2%;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.img-container img{
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+
+/*图片盒子样式*/
+.img-box {
+    /*width: 300px;*/
+    height: 300px;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    /*transform: translate(-50%, -50%);*/
+}
+.active-box{
+    border: 1px darkblue dashed;
+    cursor: move;
+}
+
+.active-box .box-btn,#close-btn-msk{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #49ff46;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    line-height: 25px;
+}
+
+.active-box .close-btn{
+    background-color: #ff563c;
+    left: -25px;
+    top: -25px;
+}
+.active-box .close-btn:hover{
+    background-color: #ff1a02;
+    cursor: pointer;
+}
+
+.active-box .rotate-btn{
+    background: #49ff46 url("../img/rotatebtn.png") no-repeat center;
+    right: -25px;
+    top: -25px;
+}
+.active-box .rotate-btn:hover{
+    background-color: #00e609;
+    cursor: move;
+}
+/*jqueryUI 缩放把手*/
+.img-box .ui-resizable-se{
+    visibility: hidden;
+}
+.active-box .ui-resizable-se{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    line-height: 25px;
+    right: -25px;
+    bottom: -25px;
+    background: #4798d9 url("../img/scale.png") no-repeat center;
+    visibility: visible;
+}
+.active-box .ui-resizable-se:hover{
+    background-color: #0054d9;
+    cursor: se-resize;
+}
+.ui-resizable-e{
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: e-resize;
+}
+.ui-resizable-s{
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: s-resize;
+}
+
+
+
+
+
