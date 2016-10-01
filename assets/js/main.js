@@ -3,8 +3,10 @@
  */
 require.config({
    paths :{
-       jquery : '../plugins/jquery-1.12.3.min',
-       jqueryUI: 'http://code.jquery.com/ui/1.10.4/jquery-ui'
+       jquery : 'http://code.jquery.com/jquery-1.12.4.min',
+       //jquery : '../plugins/jquery-1.12.3.min',
+       jqueryUI: 'http://code.jquery.com/ui/1.11.4/jquery-ui.min'
+       //jqueryUI: '../plugins/jquery-ui.min'
    }
 });
 var imgid = 0,
@@ -38,6 +40,7 @@ require(['jquery','window','jqueryUI','draw'], function($,w,$UI,d){
             target.parentNode.className = 'img-box active-box';
         }
     }).resizable({containment:'.center'});
+
 
     $('#drawing-btn').click(function(){
         $('#msk').toggleClass('show');

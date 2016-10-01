@@ -1,7 +1,7 @@
 /**
  * Created by d on 2016/9/17.
  */
-define(['jquery','jqueryUI'],function($, $UI){
+define(['jquery','jqueryUI','rotate'],function($, $UI, r){
    function Window(){
 
    }
@@ -19,6 +19,7 @@ define(['jquery','jqueryUI'],function($, $UI){
             );
             this.imgBox.appendTo(pNode);
             this.closeBtn = $('#close-btn-'+imgid);
+            this.rotateBtn = $('#rotate-btn-'+imgid);
             //this.img = $('#img-'+imgid);
             //this.text = $('#text-'+textid);
             this.firstChildName = this.imgBox[0].firstChild.tagName.toLowerCase();
@@ -45,9 +46,18 @@ define(['jquery','jqueryUI'],function($, $UI){
                     this.parentNode.remove();
                 });
             }
-            this.imgBox.draggable();
+            this.imgBox.draggable({handle : this.firstChildName});
+            //this.imgBox.draggable({handle:'img'});
+
+            var rotate = new r.Rotate();
+            rotate.init({
+                rotateBox : this.imgBox,
+                handle : this.rotateBtn
+            });
+
             if(this.firstChildName == 'img'){
                 this.imgBox.resizable({alsoResize:this.img,containment:'.panel'});
+
             }
             },
 
