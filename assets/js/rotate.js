@@ -45,14 +45,14 @@ define(['jquery'],function($){
                 this.oldDeg = Number(this.rotateBox[0].style.transform.slice(7,-4)) % 360;      //获取元素初始角度
                 moving = setInterval(this.onMove.bind(this),40);
             }.bind(that));
-            document.onmousemove =function(e){
+            document.addEventListener('mousemove',function(e){
                 var e = window.event || e;
                 this.mx = e.pageX;                  //获取移动时鼠标位置坐标
                 this.my = e.pageY;
-            }.bind(that);
-            document.onmouseup = function(e) {
-                clearInterval(moving);
-            }
+            }.bind(this),false);
+            document.addEventListener('mouseup',function() {
+                clearInterval(this.moving);
+            }.bind(this),false);
         }
     };
 
