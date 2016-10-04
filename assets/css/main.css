@@ -110,7 +110,6 @@ textarea{
     margin: 0 auto;
 
 }
-
 .center{
     background-color: #f7f7f7;
     width: 60%;
@@ -123,6 +122,20 @@ textarea{
     display: inline-block;
     vertical-align: top;
     position: relative;
+}
+#addlocalimg{
+    position: absolute;
+    top: -99px;
+}
+#addlocalimg-btn{
+    display: block;
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 360px;
+    z-index: 99;
+    line-height: 40px;
 }
 #clear-btn{
     width: 100px;
@@ -141,6 +154,7 @@ textarea{
     top: 10px;
     right: 20px;
     z-index: 99;
+
 }
 .center .panel{
     width: 100%;
