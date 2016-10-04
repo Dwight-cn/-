@@ -28,10 +28,10 @@ require(['jquery','window','jqueryUI','draw'], function($,w,$UI,d){
         var fontSize = document.getElementById('font-size').value ||36;
         var fontColor = document.getElementById('font-color').value;
         var fontFamily = document.getElementById('font-family').value;
-        //alert(fontContent+fontSize+fontColor+fontFamily);
-
         var text = new w.Window();
         text.init('.panel','<span class="text" style = "font:'+fontSize+'px'+' '+fontFamily+'; color:'+fontColor+'"; id="text-'+textid+'">'+fontContent+'</span>')
+        imgid++;
+        textid++;
     });
     $('.panel').click(function(e){
         var target = e.target;
