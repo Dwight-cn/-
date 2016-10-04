@@ -31,6 +31,9 @@ textarea{
     text-align: center;
     cursor: pointer;
 }
+.btn:hover{
+    background-color: #ffbb00;
+}
 
 #msk{
     width: 100%;
@@ -107,9 +110,7 @@ textarea{
     margin: 0 auto;
 
 }
-#addfont-btn:hover{
-    background-color: #ffbb00;
-}
+
 .center{
     background-color: #f7f7f7;
     width: 60%;
@@ -123,6 +124,15 @@ textarea{
     vertical-align: top;
     position: relative;
 }
+#clear-btn{
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 240px;
+    z-index: 99;
+    line-height: 40px;
+}
 #drawing-btn{
     width: 200px;
     height: 40px;
@@ -131,7 +141,6 @@ textarea{
     top: 10px;
     right: 20px;
     z-index: 99;
-
 }
 .center .panel{
     width: 100%;
