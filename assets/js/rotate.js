@@ -25,8 +25,6 @@ define(['jquery'],function($){
 
 
         init : function(cfg){
-            //console.log(this);
-            var that = this;
             $.extend(this.cfg,cfg,{});
             this.rotateBox = this.cfg.rotateBox;
             if(this.cfg.handle){
@@ -35,7 +33,6 @@ define(['jquery'],function($){
 
             }
             this.handle.mousedown(function(e){
-                //console.log(this);
                 var e = window.event || e;
                 this.ox = this.rotateBox.width()/2+this.rotateBox.offset().left;    //计算元素中心坐标
                 this.oy = this.rotateBox.height()/2+this.rotateBox.offset().top;
@@ -44,7 +41,7 @@ define(['jquery'],function($){
                 this.angle1 = this.convertAngle(Math.atan2(this.oy-this.y1,this.x1-this.ox));//计算元素中心和手柄连线 与 水平线夹角
                 this.oldDeg = Number(this.rotateBox[0].style.transform.slice(7,-4)) % 360;      //获取元素初始角度
                 moving = setInterval(this.onMove.bind(this),40);
-            }.bind(that));
+            }.bind(this));
             document.addEventListener('mousemove',function(e){
                 var e = window.event || e;
                 this.mx = e.pageX;                  //获取移动时鼠标位置坐标
