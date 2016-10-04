@@ -41,7 +41,9 @@ require(['jquery','window','jqueryUI','draw'], function($,w,$UI,d){
         }
     }).resizable({containment:'.center'});
 
-
+    $('#clear-btn').click(function(){
+       $('.img-box').remove();
+    });
     $('#drawing-btn').click(function(){
         $('#msk').toggleClass('show');
         var canvas = new d.Draw();
