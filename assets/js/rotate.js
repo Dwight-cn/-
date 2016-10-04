@@ -6,7 +6,7 @@ define(['jquery'],function($){
         this.cfg = {
             rotateBox : null,
             handle : null
-        }
+        };
     }
 
     Rotate.prototype = {
@@ -17,14 +17,15 @@ define(['jquery'],function($){
         onMove : function(){
             //console.log(this);
             this.angle2 = this.convertAngle(Math.atan2(this.oy - this.my, this.mx - this.ox));      //计算鼠标和元素中心连线 与 水平线夹角
-            var angle = this.angle1 - this.angle2 + this.oldDeg;                                        //计算旋转角度
+            this.angle = this.angle1 - this.angle2 + this.oldDeg;                                        //计算旋转角度
             this.rotateBox.css({
-                transform : "rotate(" + angle + "deg)"
+                transform : "rotate(" + this.angle + "deg)"
             });
         },
 
 
         init : function(cfg){
+            //console.log(this);
             $.extend(this.cfg,cfg,{});
             this.rotateBox = this.cfg.rotateBox;
             if(this.cfg.handle){
@@ -33,6 +34,7 @@ define(['jquery'],function($){
 
             }
             this.handle.mousedown(function(e){
+                //console.log(e.pageX);
                 var e = window.event || e;
                 this.ox = this.rotateBox.width()/2+this.rotateBox.offset().left;    //计算元素中心坐标
                 this.oy = this.rotateBox.height()/2+this.rotateBox.offset().top;
@@ -40,8 +42,14 @@ define(['jquery'],function($){
                 this.y1 = this.handle.offset().top+this.handle.height()/2;
                 this.angle1 = this.convertAngle(Math.atan2(this.oy-this.y1,this.x1-this.ox));//计算元素中心和手柄连线 与 水平线夹角
                 this.oldDeg = Number(this.rotateBox[0].style.transform.slice(7,-4)) % 360;      //获取元素初始角度
-                moving = setInterval(this.onMove.bind(this),40);
+                this.moving = setInterval(this.onMove.bind(this),40);
             }.bind(this));
+           /* document.onmousemove =function(e){
+                var e = window.event || e;
+                this.mx = e.pageX;                  //获取移动时鼠标位置坐标
+                this.my = e.pageY;
+                //console.log(this.mx)
+            }.bind(this);*/
             document.addEventListener('mousemove',function(e){
                 var e = window.event || e;
                 this.mx = e.pageX;                  //获取移动时鼠标位置坐标
