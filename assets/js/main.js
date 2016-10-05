@@ -3,8 +3,8 @@
  */
 require.config({
    paths :{
-       jquery : 'http://code.jquery.com/jquery-1.12.4.min',
-       //jquery : '../plugins/jquery-1.12.3.min',
+       //jquery : 'http://code.jquery.com/jquery-1.12.4.min',
+       jquery : '../plugins/jquery-1.12.3.min',
        jqueryUI: '../plugins/jquery-ui.min'
    }
 });
@@ -72,4 +72,33 @@ require(['jquery','window','jqueryUI','draw'], function($,w,$UI,d){
             imgDiv.children()[0].src = imgSrc;
         };
     });
+
+
+    var loadingImg = $('<div class="loading"><img src="assets/img/icon/loading.gif" alt=""/><p>加载中...</p></div>');
+    var loadErroImg = $('<div class="loading"><img src="assets/img/icon/loaderro.gif" alt=""/><p>加载失败！！！</p></div>');
+    $(
+        creatImglist('热门')
+    );
+    $('.tag').click(function(e){
+        var tabName = e.target.innerHTML;
+        creatImglist(tabName);
+    });
+    function creatImglist(tabName){
+        var imglist = $('#img-list');
+        loadingImg.appendTo('#img-list');
+        $.get('./assets/data/imglist.json',function(data, textStatus){
+            var list = '';
+            for(var i = 0, len = data.length; i < len; i++){
+                if(data[i].tags.indexOf(tabName) != -1){
+                    list += '<div class="img-container"><img src="'+ data[i].url +'" alt=""/></div>';
+                }
+            }
+            imglist.html('');
+            if(list!= ''){
+                $(list).appendTo('#img-list');
+            }else{
+                loadErroImg.appendTo('#img-list');
+            }
+        }, 'json');
+    }
 });
