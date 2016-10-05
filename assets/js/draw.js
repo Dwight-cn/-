@@ -5,7 +5,11 @@ define(['jquery'],function($){
     function Draw(){
         this.cfg = {
 
-        }
+        };
+        this.maxX = 0;
+        this.minX = 9999;
+        this.maxY = 0;
+        this.minY = 9999;
     }
 
     Draw.prototype ={
@@ -16,6 +20,10 @@ define(['jquery'],function($){
             attrs.width = parseInt($(ele.parentNode).width());
             attrs.height = parseInt($(ele.parentNode).height());
             attrs.angle = Number(ele.parentElement.style.transform.slice(7,-4))*Math.PI/180;
+            this.minX = Math.min(attrs.x,this.minX);
+            this.minY = Math.min(attrs.y,this.minY);
+            this.maxX = Math.max(attrs.x + attrs.width, this.maxX);
+            this.maxY = Math.max(attrs.y + attrs.height, this.maxY);
 
             return attrs
         },
@@ -73,9 +81,31 @@ define(['jquery'],function($){
                     attrs.font = this.style.font;
                     attrs.context = that.context;
                     that.drawText(attrs);
+
                 });
 
+                console.log(this.maxX+' '+this.maxY+' '+this.minX+' '+this.minY);
+                var canvansUrl = this.canvas[0].toDataURL('image/png');
+                var canvansImg = $('<img src="'+canvansUrl+'" alt="" style=" position: fixed; top: -9999px"/>');
+                canvansImg.appendTo('body');
+                var cwidth = parseInt(canvansImg.width());
+                var cheight = parseInt(canvansImg.height());
+                console.log(cwidth);
+                this.canvasWidth = this.maxX - this.minX;
+                this.canvasHeight = this.maxY - this.minY;
+                this.canvas.attr({width:this.canvasWidth,height:this.canvasHeight});
+                var att = {
+                    context : this.context,
+                    x :　-this.minX,
+                    y : -this.minY,
+                    width : cwidth,
+                    height : cheight,
+                    angle : 0,
+                    ele : canvansImg[0]
+                };
+                this.drawImg(att);
             }
+
         }
     };
 
