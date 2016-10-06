@@ -76,17 +76,22 @@ require(['jquery','window','jqueryUI','draw'], function($,w,$UI,d){
 
     var loadingImg = $('<div class="loading"><img src="assets/img/icon/loading.gif" alt=""/><p>加载中...</p></div>');
     var loadErroImg = $('<div class="loading"><img src="assets/img/icon/loaderro.gif" alt=""/><p>加载失败！！！</p></div>');
-    $(
-        creatImglist('热门')
-    );
+    var imglist = $('#img-list');
+    $(function(){
+        imglist.html('');
+        creatImglist('热门','./assets/data/.json');
+    });
     $('.tag').click(function(e){
         var tabName = e.target.innerHTML;
-        creatImglist(tabName);
+        imglist.html('');
+        creatImglist(tabName,'./assets/data/imglist.json');
     });
-    function creatImglist(tabName){
-        var imglist = $('#img-list');
+    function creatImglist(tabName,jsonUrl){
         loadingImg.appendTo('#img-list');
-        $.get('./assets/data/imglist.json',function(data, textStatus){
+        if(tabName === '热门'){
+            jsonUrl = './assets/data/hot.json';
+        }
+        $.get(jsonUrl,function(data, textStatus){
             var list = '';
             for(var i = 0, len = data.length; i < len; i++){
                 if(data[i].tags.indexOf(tabName) != -1){
