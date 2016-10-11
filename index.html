@@ -27,57 +27,61 @@
     <div class="box-btn close-btn" id="close-btn-msk">╳</div>
     <canvas id="picture"></canvas>
 </div>
-<div class="left">
-    <div class="left-title">
-        <span>文字</span>
-    </div>
-    <div class="left-content" id="a">
-        <span>内容：</span><textarea rows="5"  id="font-content"></textarea><br/>
-        <span>大小：</span><input type="number" id="font-size" min="0" max="999"/><span>&nbsp;像素</span><br/>
-        <span>字体：</span>
+<div class="wrap" id="container">
+    <div class="left moudle">
+        <div class="left-title">
+            <span>文字</span>
+        </div>
+        <div class="left-content" id="a">
+            <span>内容：</span><textarea rows="5"  id="font-content"></textarea><br/>
+            <span>大小：</span><input type="number" id="font-size" min="0" max="999"/><span>&nbsp;像素</span><br/>
+            <span>字体：</span>
             <select name="fontfamily" id="font-family">
                 <option value="microsoft yahei">微软雅黑</option>
                 <option value="songti">宋体</option>
                 <option value="黑体">黑体</option>
                 <option value="楷体">楷体</option>
-             </select><br/>
-        <span>颜色：</span><input type="color" id="font-color"/><br/>
+            </select><br/>
+            <span>颜色：</span><input type="color" id="font-color"/><br/>
 
-        <div class="btn" id="addfont-btn">添加文字</div>
-        
+            <div class="btn" id="addfont-btn">添加文字</div>
 
-    </div>
-</div>
-<div class="center">
-    <label for="addlocalimg" id="addlocalimg-btn" class="btn">添加本地图片</label>
-    <input type="file" accept="*/*" id="addlocalimg"/>
-    <div class="btn" id="clear-btn">清空</div>
-    <div class="btn" id="drawing-btn">生成图片</div>
-    <div class="panel">
 
-    </div>
-</div>
-<div class="right">
-    <div class="right-title">
-        <span>图片素材</span>
-    </div>
-    <div id="tags">
-        <div id="tagswrap">
-            <span class="tag">热门</span>
-            <span class="tag">面部</span>
-            <span class="tag">人物轮廓</span>
-            <span class="tag">场景</span>
-            <span class="tag">小道具</span>
-            <span class="tag">对话框</span>
-            <span class="tag">边框</span>
-            <span class="tag">金馆长</span>
-            <span class="tag">尔康</span>
-            <span class="tag">王尼玛</span>
         </div>
-        <div id="moretag">≡</div>
     </div>
-    <div id="img-list">
-        <div class="loading"><img src="assets/img/icon/loading.gif" alt=""/><p>加载中...</p></div>
+    <div class="right moudle">
+        <div class="right-title">
+            <span>图片素材</span>
+        </div>
+        <div id="tags">
+            <div id="tagswrap">
+                <span class="tag">热门</span>
+                <span class="tag">面部</span>
+                <span class="tag">人物轮廓</span>
+                <span class="tag">场景</span>
+                <span class="tag">小道具</span>
+                <span class="tag">对话框</span>
+                <span class="tag">边框</span>
+                <span class="tag">金馆长</span>
+                <span class="tag">尔康</span>
+                <span class="tag">王尼玛</span>
+            </div>
+            <div id="moretag">≡</div>
+        </div>
+        <div id="img-list">
+            <div class="loading"><img src="assets/img/icon/loading.gif" alt=""/><p>加载中...</p></div>
+        </div>
+    </div>
+    <div class="center moudle">
+        <div id="btn-wrap">
+            <label for="addlocalimg" id="addlocalimg-btn" class="btn">添加本地图片</label>
+            <input type="file" accept="*/*" id="addlocalimg"/>
+            <div class="btn" id="clear-btn">清空</div>
+            <div class="btn" id="drawing-btn">生成图片</div>
+        </div>
+        <div class="panel">
+
+        </div>
     </div>
 </div>
 <script data-main="assets/js/main" src="assets/plugins/require-2.1.11-min.js"></script>  

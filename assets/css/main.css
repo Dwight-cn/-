@@ -25,7 +25,9 @@ textarea{
 }
 
 .btn{
+    padding: 0 20px;
     border-radius: 5px;
+    display: inline-block;
     background-color: #ffde45;
     font-size: 18px;
     text-align: center;
@@ -33,6 +35,11 @@ textarea{
 }
 .btn:hover{
     background-color: #ffbb00;
+}
+.moudle{
+    box-sizing: content-box;
+    border-radius: 5px;
+    border: 1px #c8c8c8 solid;
 }
 
 #msk{
@@ -86,12 +93,23 @@ textarea{
     font-size: 20px;
     text-align: center;
 }
-
+#container{
+    padding: 10px;
+    height: 100%;
+    box-sizing: border-box;
+}
+/*#container:after{
+    /!*去浮动*!/
+    content:"";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}*/
 .left{
-    width: 15%;
+    width: 300px;
     height: 100%;
     float: left;
-    vertical-align: top;
     background-color: #ededed;
 }
 .left-title,.right-title{
@@ -119,55 +137,46 @@ textarea{
 
 }
 .center{
-    background-color: #f7f7f7;
-    width: 60%;
     height: 100%;
-    padding-top: 70px;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px;
+    margin: 0 410px 0 310px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 60px;
+    padding-left: 10px;
     box-sizing: border-box;
-    float: left;
-    vertical-align: top;
     position: relative;
+    background-color: #f7f7f7;
+}
+#btn-wrap{
+    position: absolute;
+    right: 10px;
+}
+#btn-wrap .btn{
+    margin-left: 10px;
+    height: 40px;
+    line-height: 40px;
 }
 #addlocalimg{
     position: absolute;
     top: -99px;
 }
 #addlocalimg-btn{
-    display: block;
-    width: 200px;
-    height: 40px;
-    position: absolute;
-    top: 10px;
-    right: 360px;
-    z-index: 99;
-    line-height: 40px;
+    
 }
 #clear-btn{
-    width: 100px;
-    height: 40px;
-    position: absolute;
-    top: 10px;
-    right: 240px;
-    z-index: 99;
-    line-height: 40px;
+
 }
 #drawing-btn{
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    z-index: 99;
 
 }
 .center .panel{
     width: 100%;
     height: 100%;
-    margin: 0 auto;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    box-sizing: border-box;
     border:2px dashed #ffde45;
     border-radius: 5px;
     position: relative;
@@ -199,11 +208,11 @@ textarea{
     display: flex;
     box-orient:vertical;
     flex-direction:column;
-    width: 25%;
+    width: 400px;
     height: 100%;
-    float: left;
-    vertical-align: top;
-    position: relative;
+    float: right;
+    /*vertical-align: top;*/
+    /*position: relative;*/
     background-color: #ededed;
 }
 
@@ -262,9 +271,9 @@ textarea{
 .img-container{
     float: left;
     width: 47%;
-    height: 200px;
+    height: 150px;
     margin-left: 2%;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     position: relative;
     overflow: hidden;
     background-color: #ffffff;
@@ -286,6 +295,7 @@ textarea{
     left: 100px;
     top: 100px;
 }
+
 .active-box{
     border: 1px darkblue dashed;
     cursor: move;
