@@ -2,6 +2,9 @@
  * Created by dwt on 2016/5/14 0014.
  */
 require.config({
+    shim :{
+      'jquery.lazyload' : ['jquery']
+    },
    paths :{
        //jquery : 'http://code.jquery.com/jquery-1.12.4.min',
        jquery : '../plugins/jquery-1.12.3.min',
@@ -11,7 +14,7 @@ require.config({
 var imgid = 0,
     textid = 0,
     moving;
-require(['jquery','window','jqueryUI','draw'], function($,w,$UI,d){
+require(['jquery','window','jqueryUI','draw','jquery.lazyload'], function($,w,$UI,d,$l){
     $('#img-list').delegate('.img-container', 'click', function(e){
         $('.img-box').removeClass('active-box');
         var target = e.target;
@@ -95,12 +98,18 @@ require(['jquery','window','jqueryUI','draw'], function($,w,$UI,d){
             var list = '';
             for(var i = 0, len = data.length; i < len; i++){
                 if(data[i].tags.indexOf(tabName) != -1){
-                    list += '<div class="img-container"><img src="'+ data[i].url +'" alt=""/></div>';
+                    list += '<div class="img-container"><img class="lazy" data-original="'+ data[i].url +'" alt="" /></div>';
                 }
             }
             imglist.html('');
             if(list!= ''){
                 $(list).appendTo('#img-list');
+                $('img.lazy').lazyload({
+                    placeholder : 'assets/img/icon/loading.gif',
+                    container : $('#img-list'),
+                    threshold : 100,
+                    effect : 'fadeIn'
+                })
             }else{
                 loadErroImg.appendTo('#img-list');
             }
