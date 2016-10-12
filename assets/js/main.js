@@ -3,7 +3,8 @@
  */
 require.config({
     shim :{
-      'jquery.lazyload' : ['jquery']
+      'jquery.lazyload' : ['jquery'],
+        jqueryUI : ['jquery']
     },
    paths :{
        //jquery : 'http://code.jquery.com/jquery-1.12.4.min',

@@ -42,7 +42,7 @@ textarea{
     border: 1px #c8c8c8 solid;
 }
 
-#msk{
+#msk, #mobile{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
@@ -52,6 +52,16 @@ textarea{
     transform: translate(-50%, -50%);
     z-index: 999;
     display: none;
+}
+@media screen and (max-width: 1200px) {
+    #mobile{
+        display: block;
+        font-size: 50px;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        line-height: 10;
+    }
 }
 #msk.show{
     display: block;
@@ -292,8 +302,8 @@ textarea{
 .img-box {
     height: 300px;
     position: absolute;
-    left: 100px;
-    top: 100px;
+    left: 50px;
+    top: 50px;
 }
 
 .active-box{
