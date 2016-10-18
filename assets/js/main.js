@@ -3,7 +3,7 @@
  */
 require.config({
     shim :{
-      'jquery.lazyload' : ['jquery'],
+        'jquery.lazyload' : ['jquery'],
         jqueryUI : ['jquery']
     },
    paths :{

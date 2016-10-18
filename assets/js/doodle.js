@@ -17,7 +17,6 @@ define(['jquery','window'],function($,w){
             this.startY = attr.y;
         },
         onMove  : function(){
-            console.log(this.attr);
             this.attr.x = this.mx;
             this.attr.y = this.my;
             this.drawPath(this.attr);

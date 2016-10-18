@@ -83,8 +83,7 @@ define(['jquery'],function($){
                     that.drawText(attrs);
 
                 });
-
-                console.log(this.maxX+' '+this.maxY+' '+this.minX+' '+this.minY);
+                
                 var canvansUrl = this.canvas[0].toDataURL('image/png');
                 var canvansImg = $('<img class="unuseful" src="'+canvansUrl+'" alt="" style=" position: fixed; top: -9999px"/>');
                 canvansImg.appendTo('body');
