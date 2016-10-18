@@ -12,8 +12,8 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
             this.imgBox = $(
                 '<div class="img-box active-box" id="img-box-'+imgid+'">'+
                     img+
-                    '<div class="box-btn close-btn" id="close-btn-'+imgid+'">╳</div>'+
-                    '<div class="box-btn rotate-btn" id="rotate-btn-'+imgid+'"></div>'+
+                    '<div class="box-btn close-btn" id="close-btn-'+imgid+'" title="关闭">╳</div>'+
+                    '<div class="box-btn rotate-btn" id="rotate-btn-'+imgid+'" title="旋转"></div>'+
                     //'<div class="box-btn scale-btn" id="scale-btn-'+imgid+'">◢</div>'+
                 '</div>'
             );
@@ -37,7 +37,8 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
 
             this.imgBox.css({
                 width : this.imgWidth + 'px',
-                height : this.imgHeight + 'px'
+                height : this.imgHeight + 'px',
+                zIndex : 9
             });
         },
         binUI : function(){

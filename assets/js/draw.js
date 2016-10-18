@@ -86,11 +86,10 @@ define(['jquery'],function($){
 
                 console.log(this.maxX+' '+this.maxY+' '+this.minX+' '+this.minY);
                 var canvansUrl = this.canvas[0].toDataURL('image/png');
-                var canvansImg = $('<img src="'+canvansUrl+'" alt="" style=" position: fixed; top: -9999px"/>');
+                var canvansImg = $('<img class="unuseful" src="'+canvansUrl+'" alt="" style=" position: fixed; top: -9999px"/>');
                 canvansImg.appendTo('body');
                 var cwidth = parseInt(canvansImg.width());
                 var cheight = parseInt(canvansImg.height());
-                console.log(cwidth);
                 this.canvasWidth = this.maxX - this.minX;
                 this.canvasHeight = this.maxY - this.minY;
                 this.canvas.attr({width:this.canvasWidth,height:this.canvasHeight});
@@ -104,6 +103,7 @@ define(['jquery'],function($){
                     ele : canvansImg[0]
                 };
                 this.drawImg(att);
+                $('.unuseful').remove();
             }
 
         }

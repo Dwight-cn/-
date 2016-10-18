@@ -6,6 +6,7 @@
     <meta name="baidu-site-verification" content="AYYwOWRLEw" />
     <title>表情工厂-在线制作表情金馆长暴走漫画表情包</title>
 
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/icon/icon.ico" media="screen">
     <link rel="stylesheet" href="assets/css/main.css" type="text/css">
     <script>
         var _hmt = _hmt || [];
@@ -19,29 +20,84 @@
 </head>
 <body>
 <div class="wrap" id="container">
-    <div class="left moudle">
-        <div class="left-title">
-            <span>文字</span>
+    <div class="left">
+        <div class="words moudle">
+            <div class="words-title title">
+                <span>文字</span>
+            </div>
+            <div class="words-content">
+                <div class="table">
+                    <lable class="lable"><span>内容：</span></lable>
+                    <div class="cell">
+                        <textarea rows="5"  id="font-content"></textarea>
+                    </div>
+                </div>
+                <div class="table">
+                    <lable class="lable"><span>大小：</span></lable>
+                    <div class="cell">
+                        <input type="number" id="font-size" min="0" max="999" placeholder="像素值"/>
+                    </div>
+                </div>
+                <div class="table">
+                    <lable class="lable"><span>字体：</span></lable>
+                    <div class="cell">
+                        <select name="fontfamily" id="font-family">
+                            <option value="microsoft yahei">微软雅黑</option>
+                            <option value="songti">宋体</option>
+                            <option value="黑体">黑体</option>
+                            <option value="楷体">楷体</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table">
+                    <lable class="lable"><span>颜色：</span></lable>
+                    <div class="cell">
+                        <input type="color" id="font-color"/>
+                    </div>
+
+                </div>
+
+                <div class="btn" id="addfont-btn">添加文字</div>
+            </div>
         </div>
-        <div class="left-content" id="a">
-            <span>内容：</span><textarea rows="5"  id="font-content"></textarea><br/>
-            <span>大小：</span><input type="number" id="font-size" min="0" max="999"/><span>&nbsp;像素</span><br/>
-            <span>字体：</span>
-            <select name="fontfamily" id="font-family">
-                <option value="microsoft yahei">微软雅黑</option>
-                <option value="songti">宋体</option>
-                <option value="黑体">黑体</option>
-                <option value="楷体">楷体</option>
-            </select><br/>
-            <span>颜色：</span><input type="color" id="font-color"/><br/>
+        <div class="doodle moudle">
+            <div class="doodle-title title">
+                <span>涂鸦</span>
+            </div>
+            <div class="doodle-content">
+                <div class="table">
+                    <lable class="lable"><span>画笔粗细：</span></lable>
+                    <div class="cell">
+                        <ul id="bursh-weight-select">
+                            <li>
+                                <div  id="bursh-weight-selected">
+                                    <div class="bw bw1" data-w='1'></div><span>▼</span>
+                                </div>
+                                <ul id="bursh-weight-option">
+                                    <li><div class="bw bw1" data-w='1'></div></li>
+                                    <li><div class="bw bw5" data-w='5'></div></li>
+                                    <li><div class="bw bw10" data-w='10'></div></li>
+                                    <li><div class="bw bw20" data-w='20'></div></li>
+                                    <li><div class="bw bw40" data-w='40'></div></li>
+                                </ul>
+                            </li>
+                        </ul>
 
-            <div class="btn" id="addfont-btn">添加文字</div>
+                    </div>
+                </div>
+                <div class="table">
+                    <lable class="lable"><span>画笔颜色：</span></lable>
+                    <div class="cell">
+                        <input type="color" id="brush-color"/>
+                    </div>
+                </div>
 
-
+                <div class="btn" id="begindoodle-btn">开始涂鸦</div>
+            </div>
         </div>
     </div>
     <div class="right moudle">
-        <div class="right-title">
+        <div class="right-title title">
             <span>图片素材</span>
         </div>
         <div id="tags">
@@ -65,14 +121,20 @@
         </div>
     </div>
     <div class="center moudle">
-        <div id="btn-wrap">
+        <div id="btn-wrap" class="show">
             <label for="addlocalimg" id="addlocalimg-btn" class="btn">添加本地图片</label>
             <input type="file" accept="*/*" id="addlocalimg"/>
             <div class="btn" id="clear-btn">清空</div>
             <div class="btn" id="drawing-btn">生成图片</div>
         </div>
+        <div id="doodle-btn-wrap">
+            <div class="btn" id="undone-btn">撤销</div>
+            <div class="btn" id="over-btn">画完了</div>
+        </div>
         <div class="panel">
-
+            <canvas id="doodle-canvas" width="500" height="500">
+                你的浏览器不支持canvas！建议使用chrome、火狐等浏览器！
+            </canvas>
         </div>
     </div>
 </div>
