@@ -45,7 +45,7 @@ require(['jquery','window','jqueryUI','draw','jquery.lazyload','doodle'], functi
     $('.panel').click(function(e){
         var target = e.target;
         $('.img-box').removeClass('active-box');
-        if((target.nodeName.toLowerCase() == 'img' && target.className != 'doodleimg') || target.nodeName.toLowerCase() == 'span'){
+        if((target.nodeName.toLowerCase() == 'img' && target.parentNode.className != 'doodleimg') || target.nodeName.toLowerCase() == 'span'){
             target.parentNode.className = 'img-box active-box';
         }
     }).resizable({containment:'.center'});

@@ -48,7 +48,6 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
                 });
             }
             this.imgBox.draggable({handle : this.firstChildName});
-            //this.imgBox.draggable({handle:'img'});
 
             var rotate = new r.Rotate();
             rotate.init({
@@ -57,7 +56,7 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
             });
 
             if(this.firstChildName == 'img'){
-                this.imgBox.resizable({alsoResize:this.img,containment:'.panel'});
+                this.imgBox.resizable({alsoResize:this.img/*,containment:'.panel'*/});
 
             }
             },
