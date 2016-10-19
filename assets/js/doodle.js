@@ -55,7 +55,7 @@ define(['jquery','window'],function($,w){
             this.canvas.mouseup(function(){
                 clearInterval(this.moving);
                 var canvansUrl = this.canvas[0].toDataURL('image/png');
-                var canvansImg = $('<img class="doodleimg" src="'+canvansUrl+'" alt="" style="position: absolute; top:0; left: 0; z-index:0; width:'+ width +'px; height:'+ height+'px;"/>');
+                var canvansImg = $('<div class="doodleimg" style="position: absolute; top:0; left: 0; z-index:0; width:'+ width +'px; height:'+ height+'px;"><img src="'+canvansUrl+'" alt="" /></div>');
                 canvansImg.appendTo(panel);
                 this.canvas[0].width = width;
             }.bind(this));

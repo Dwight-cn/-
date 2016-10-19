@@ -6,6 +6,7 @@ html{
 body{
     position: relative;
     height: 100%;
+    min-width: 1200px;
     font-size: 14px;
     font-family: 'microsoft yahei';
 }
@@ -36,6 +37,7 @@ li{
     text-align: center;
     cursor: pointer;
     user-select:none;
+    -ms-user-select:none;
     -webkit-user-select: none;
     -moz-user-select: none;
 }
@@ -246,6 +248,7 @@ li{
 .panel{
     position: relative;
     user-select:none;
+    -ms-user-select:none;
     -webkit-user-select: none;
     -moz-user-select: none;
 }
@@ -292,6 +295,7 @@ li{
     border-radius: 11px;
     cursor: pointer;
     user-select:none;
+    -ms-user-select:none;
     -webkit-user-select: none;
     -moz-user-select: none;
 }

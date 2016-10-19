@@ -55,6 +55,8 @@ define(['jquery'],function($){
             this.canvas = $(canvas);
             this.canvasWidth = this.div.width();
             this.canvasHeight = this.div.height();
+            this.divWidth = this.div.width();
+            this.divHeight = this.div.height();
             this.canvas.attr({width:this.canvasWidth,height:this.canvasHeight});
 
             this.img = this.div.find('img');
@@ -83,19 +85,20 @@ define(['jquery'],function($){
                     that.drawText(attrs);
 
                 });
-                
+
                 var canvansUrl = this.canvas[0].toDataURL('image/png');
                 var canvansImg = $('<img class="unuseful" src="'+canvansUrl+'" alt="" style=" position: fixed; top: -9999px"/>');
                 canvansImg.appendTo('body');
                 var cwidth = parseInt(canvansImg.width());
                 var cheight = parseInt(canvansImg.height());
-                this.canvasWidth = this.maxX - this.minX;
-                this.canvasHeight = this.maxY - this.minY;
+                this.canvasWidth = Math.min(this.maxX - this.minX,this.divWidth);
+                this.canvasHeight = Math.min(this.maxY - this.minY, this.divHeight);
+                console.log(this.minX);
                 this.canvas.attr({width:this.canvasWidth,height:this.canvasHeight});
                 var att = {
                     context : this.context,
-                    x :　-this.minX,
-                    y : -this.minY,
+                    x :　this.minX<0 ? 0:-this.minX,
+                    y : this.minY<0 ? 0:-this.minY,
                     width : cwidth,
                     height : cheight,
                     angle : 0,

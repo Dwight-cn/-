@@ -16,6 +16,8 @@ var imgid = 0,
     textid = 0,
     moving;
 require(['jquery','window','jqueryUI','draw','jquery.lazyload','doodle'], function($,w,$UI,d,$l,dd){
+
+    //素材列表
     $('#img-list').delegate('.img-container', 'click', function(e){
         $('.img-box').removeClass('active-box');
         var target = e.target;
@@ -26,6 +28,7 @@ require(['jquery','window','jqueryUI','draw','jquery.lazyload','doodle'], functi
         }
         imgid++;
     });
+    //添加文字
     $('#addfont-btn').click(function(){
         $('.img-box').removeClass('active-box');
         var fontContent = $('#font-content')[0].value ||"没有输入内容";
@@ -38,6 +41,7 @@ require(['jquery','window','jqueryUI','draw','jquery.lazyload','doodle'], functi
         imgid++;
         textid++;
     });
+    //画布
     $('.panel').click(function(e){
         var target = e.target;
         $('.img-box').removeClass('active-box');
@@ -45,23 +49,23 @@ require(['jquery','window','jqueryUI','draw','jquery.lazyload','doodle'], functi
             target.parentNode.className = 'img-box active-box';
         }
     }).resizable({containment:'.center'});
-
     //清空画布
     $('#clear-btn').click(function(){
        $('.img-box').remove();
         $('.doodleimg').remove()
     });
+    //生成图片
     $('#drawing-btn').click(function(){
-        //$('#msk').toggleClass('show');
+        $('#msk').toggleClass('show');
         var canvas = new d.Draw();
         canvas.init('.panel','#picture');
-        $('#msk').toggleClass('show');
+        //$('#msk').toggleClass('show');
     });
-
+    //遮罩层
     $('#msk').click(function(){
         $(this).toggleClass('show');
     });
-
+    //添加本地图片
     $('input[type = file]').change(function(e){
         var reader = new FileReader();
         var imgSrc = '',
@@ -78,8 +82,7 @@ require(['jquery','window','jqueryUI','draw','jquery.lazyload','doodle'], functi
             imgDiv.children()[0].src = imgSrc;
         };
     });
-
-
+    //加载素材列表
     var loadingImg = $('<div class="loading"><img src="assets/img/icon/loading.gif" alt=""/><p>加载中...</p></div>');
     var loadErroImg = $('<div class="loading"><img src="assets/img/icon/loaderro.gif" alt=""/><p>加载失败！！！</p></div>');
     var imglist = $('#img-list');
@@ -151,11 +154,13 @@ require(['jquery','window','jqueryUI','draw','jquery.lazyload','doodle'], functi
         var doodle = new  dd.Doodle();
         doodle.init($('#doodle-canvas'),$('.panel'),attr);
     }
+    //画完了
     $('#over-btn').click(function(){
         $('#doodle-canvas').removeClass('show');
         $('#doodle-btn-wrap').removeClass('show');
         $('#btn-wrap').addClass('show');
     });
+    //撤销
     $('#undone-btn').click(function(){
         $('.doodleimg:last').remove();
     });
