@@ -414,6 +414,13 @@ li{
     font-size: 0;
 }
 
+.img-box img{
+    transition: transform 0.5s;
+}
+.img-box img.flip{
+    transform: rotateY(180deg);
+}
+
 .active-box{
     border: 1px darkblue dashed;
     cursor: move;
@@ -450,6 +457,15 @@ li{
 .active-box .rotate-btn:hover{
     background-color: #00e609;
     cursor: move;
+}
+.active-box .flip-btn{
+    background: #333333 url("../img/icon/flip.png") no-repeat center;
+    left: -25px;
+    bottom: -25px;
+}
+.active-box .flip-btn:hover{
+    background-color: #0e0e0e;
+    cursor: pointer;
 }
 /*jqueryUI 缩放把手*/
 .img-box .ui-resizable-se{

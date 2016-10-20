@@ -3,10 +3,7 @@
  */
 define(['jquery','window'],function($,w){
     function Doodle(){
-        this.maxX = 0;
-        this.minX = 9999;
-        this.maxY = 0;
-        this.minY = 9999;
+
     }
     Doodle.prototype = {
         drawPath : function(attr){
@@ -22,9 +19,10 @@ define(['jquery','window'],function($,w){
         },
         drawImg : function(attrs){
             attrs.context.save();
-            attrs.context.translate(attrs.x+attrs.width/2,attrs.y+attrs.height/2);
-            attrs.context.rotate(attrs.angle);
-            attrs.context.drawImage(attrs.ele,-attrs.width/2,-attrs.height/2,attrs.width,attrs.height);
+          /*  attrs.context.translate(attrs.x+attrs.width/2,attrs.y+attrs.height/2);
+            attrs.context.rotate(attrs.angle);*/
+            //attrs.context.drawImage(attrs.ele,-attrs.width/2,-attrs.height/2,attrs.width,attrs.height);
+            attrs.context.drawImage(attrs.ele,attrs.x,attrs.y,attrs.width,attrs.height);
             attrs.context.restore();
         },
         onMove  : function(){
@@ -50,6 +48,10 @@ define(['jquery','window'],function($,w){
             this.context = this.canvas[0].getContext('2d');
 
             this.canvas.mousedown(function(e){
+                this.maxX = 0;
+                this.minX = 9999;
+                this.maxY = 0;
+                this.minY = 9999;
                 var beginX = e.offsetX;
                 var beginY = e.offsetY;
                 this.startX = beginX;
@@ -72,27 +74,28 @@ define(['jquery','window'],function($,w){
                 clearInterval(this.moving);
                 var canvansUrl = this.canvas[0].toDataURL('image/png');
                 var canvansImg = $('<img src="'+canvansUrl+'" alt="" style="width:'+ width +'px; height:'+ height +'px;"/>');
-                //canvansImg.appendTo(panel);
-                var temporaryCanvas = $('<canvas style="position: absolute; top: -9999px" width="'+(this.maxX-this.minX)+'" height="'+(this.maxY-this.minY)+'"></canvas>');
+                var temporaryCanvas = $('<canvas style="position: absolute; top: -9999px" width="'+(this.maxX-this.minX+50)+'" height="'+(this.maxY-this.minY+50)+'"></canvas>');
                 temporaryCanvas.appendTo('body');
                 var ctx = temporaryCanvas[0].getContext('2d');
                 var att = {
                     context : ctx,
-                    x : -this.minX,
-                    y : -this.minY,
+                    x : -this.minX+25,
+                    y : -this.minY+25,
                     width : width,
                     height : height,
-                    angle : 0,
                     ele : canvansImg[0]
                 };
                 this.drawImg(att);
-                var canvansUrl = temporaryCanvas[0].toDataURL('image/png');
-                var doodleImg = $('<div class="doodleimg" style="position: absolute; left: '+ this.minX +'px; top: '+ this.minY +'px;"><img src="'+ canvansUrl +'"/></div>');
+                var temporaryCanvansUrl = temporaryCanvas[0].toDataURL('image/png');
+                var doodleImg = $('<div class="doodleimg" style="position: absolute; left: '+ (this.minX-25) +'px; top: '+ (this.minY-25) +'px;"><img src="'+ temporaryCanvansUrl +'"/></div>');
                 doodleImg.appendTo(panel);
                 this.canvas[0].width = width;
                 temporaryCanvas.remove();
             }.bind(this));
 
+            $('body').mouseup(function(){
+                clearInterval(this.moving);
+            }.bind(this));
         }
     };
 

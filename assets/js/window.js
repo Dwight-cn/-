@@ -20,9 +20,11 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
             this.imgBox.appendTo(pNode);
             this.closeBtn = $('#close-btn-'+imgid);
             this.rotateBtn = $('#rotate-btn-'+imgid);
-            //this.img = $('#img-'+imgid);
-            //this.text = $('#text-'+textid);
             this.firstChildName = this.imgBox[0].firstChild.tagName.toLowerCase();
+            if(this.firstChildName == 'img'){
+                this.flipBtn = $('<div class="box-btn flip-btn" id="flip-btn-'+imgid+'" title="翻转"></div>');
+                this.imgBox.append(this.flipBtn);
+            }
         },
 
         syncUI : function(){
@@ -47,6 +49,11 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
                     this.parentNode.remove();
                 });
             }
+            if(this.flipBtn){
+                this.flipBtn.click(function(){
+                   this.img.toggleClass('flip');
+                }.bind(this));
+            }
             this.imgBox.draggable({handle : this.firstChildName});
 
             var rotate = new r.Rotate();
@@ -57,7 +64,6 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
 
             if(this.firstChildName == 'img'){
                 this.imgBox.resizable({alsoResize:this.img/*,containment:'.panel'*/});
-
             }
             },
 

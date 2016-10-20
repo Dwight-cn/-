@@ -42,9 +42,20 @@ define(['jquery'],function($){
 
         drawImg : function(attrs){
             attrs.context.save();
-            attrs.context.translate(attrs.x+attrs.width/2,attrs.y+attrs.height/2);
-            attrs.context.rotate(attrs.angle);
-            attrs.context.drawImage(attrs.ele,-attrs.width/2,-attrs.height/2,attrs.width,attrs.height);
+            if(attrs.ele.className.indexOf('flip') != -1){          //图片翻转
+                // 水平“翻转”画布
+                attrs.context.translate(this.canvasWidth, 0);
+                attrs.context.scale(-1, 1);
+                // 下面画的图片是水平翻转的
+                attrs.context.drawImage(attrs.ele, this.canvasWidth - attrs.ele.width - attrs.x, attrs.y,attrs.width,attrs.height);
+                // 画布恢复正常
+                attrs.context.translate(this.canvasWidth, 0);
+                attrs.context.scale(-1, 1);
+            }else{
+                attrs.context.translate(attrs.x+attrs.width/2,attrs.y+attrs.height/2);
+                attrs.context.rotate(attrs.angle);
+                attrs.context.drawImage(attrs.ele,-attrs.width/2,-attrs.height/2,attrs.width,attrs.height);
+            }
             attrs.context.restore();
         },
 
