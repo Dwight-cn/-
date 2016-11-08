@@ -37,7 +37,7 @@ require(['jquery','window','jqueryUI','draw','jquery.lazyload','doodle'], functi
         var fontFamily = $('#font-family')[0].value;
         //alert(fontContent+fontSize+fontColor+fontFamily);
         var text = new w.Window();
-        text.init('.panel','<span class="text" style = "font:'+fontSize+'px'+' '+fontFamily+'; color:'+fontColor+'"; id="text-'+textid+'">'+fontContent+'</span>')
+        text.init('.panel','<span class="text" style = "font:'+fontSize+'px'+' '+fontFamily+'; font-weight: bold; color:'+fontColor+'"; id="text-'+textid+'">'+fontContent+'</span>')
         imgid++;
         textid++;
     });

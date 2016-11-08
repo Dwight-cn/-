@@ -34,12 +34,12 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
                 this.img = this.imgBox.children('span');
             }
 
-            this.imgWidth = this.img.width();
-            this.imgHeight = this.img.height();
+            //this.imgWidth = this.img.width();
+            //this.imgHeight = this.img.height();
 
             this.imgBox.css({
-                width : this.imgWidth + 'px',
-                height : this.imgHeight + 'px',
+                //width : this.imgWidth + 'px',
+                //height : this.imgHeight + 'px',
                 zIndex : 9
             });
         },

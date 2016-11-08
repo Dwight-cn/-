@@ -177,6 +177,13 @@ li{
 #bursh-weight-select .bw10{height: 10px}
 #bursh-weight-select .bw20{height: 20px}
 #bursh-weight-select .bw40{height: 40px}
+#contact-info{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ededed;
+    line-height: 1.5em;
+    text-align: center;
+}
 
 .center{
     height: 100%;
@@ -251,6 +258,9 @@ li{
     -ms-user-select:none;
     -webkit-user-select: none;
     -moz-user-select: none;
+/*    background-image: linear-gradient(to bottom, transparent 19px, #eee 19px , #eee 20px, transparent 20px, transparent 39px, #eee 39px , #eee 40px, transparent 40px, transparent 59px, #ddd 59px , #ddd 60px),
+    linear-gradient(to right,  transparent 19px, #eee 19px , #eee 20px, transparent 20px, transparent 39px, #eee 39px , #eee 40px, transparent 40px, transparent 59px, #ddd 59px , #ddd 60px);
+    background-size: 60px 60px;*/
 }
 .panel #doodle-canvas{
     display: none;
@@ -407,7 +417,6 @@ li{
 
 /*图片盒子样式*/
 .img-box {
-    height: 300px;
     position: absolute;
     left: 50px;
     top: 50px;
