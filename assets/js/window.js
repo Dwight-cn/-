@@ -40,7 +40,7 @@ define(['jquery','jqueryUI','rotate'],function($, $UI, r){
             this.imgBox.css({
                 //width : this.imgWidth + 'px',
                 //height : this.imgHeight + 'px',
-                zIndex : 9
+                //zIndex : 9
             });
         },
         binUI : function(){

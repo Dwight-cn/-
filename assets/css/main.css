@@ -272,6 +272,9 @@ li{
 .panel #doodle-canvas.show{
     display: block;
 }
+.doodleimg{
+    pointer-events: none;
+}
 
 .right{
     display: flex;
@@ -444,6 +447,7 @@ li{
     font-size: 24px;
     font-weight: bold;
     position: absolute;
+    z-index: 9;
     text-align: center;
     line-height: 25px;
 }
